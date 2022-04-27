@@ -79,14 +79,17 @@ const App = () => {
 
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
-      return [expense, ...prevExpenses];
-    });
-  };
-  console.log(expenses);
+      return [expense, ...prevExpenses]
+    })
+  }
+  const cancelExpenseHandler = (cancelKey) => {
+    const newArray = [...expenses].filter((ex) => ex.id !== cancelKey)
+    setExpenses(newArray)
+  }  
   return (
     <div>
       <NewExpense onAddExpense = {addExpenseHandler}/>
-      <Expenses items={expenses} />
+      <Expenses items={expenses} onCancelExpense = {cancelExpenseHandler}/>
     </div>
   );
 

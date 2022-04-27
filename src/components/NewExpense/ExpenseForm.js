@@ -38,8 +38,9 @@ const ExpenseForm = (props) => {
     const expenseData = {
       title: enteredTitle,
       amount: +enteredAmount,
-      date: new Date(enteredDate),
+      date: new Date(enteredDate + ' 00:00'),
     };
+    
     props.onSaveExpenseData(expenseData);
     //Imp didn't understand well
     //Basically onSaveExpenseData is a pointer and this statement passes expenseData as parameters to saveExpenseDataHandler
